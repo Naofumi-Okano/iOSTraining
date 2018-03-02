@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO: SecondViewControllerのdelegateを準拠する
 class ViewController: UIViewController, SecondViewControllerDelegate {
 
     override func viewDidLoad() {
@@ -22,6 +21,10 @@ class ViewController: UIViewController, SecondViewControllerDelegate {
     }
 
     @IBAction func showTapped(_ sender: UIButton) {
+        openModalView()
+    }
+    
+    func openModalView() {
         guard let secondViewController = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else {
             return
         }
@@ -32,7 +35,5 @@ class ViewController: UIViewController, SecondViewControllerDelegate {
     func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-
-    // TODO: SecondViewController の delegateメソッドを実装
 }
 
