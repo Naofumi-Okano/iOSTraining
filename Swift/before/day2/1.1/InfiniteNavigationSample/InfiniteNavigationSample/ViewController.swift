@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = navigationController?.viewControllers.count.description
         // Do any additional setup after loading the view, typically from a nib.
     }
 
