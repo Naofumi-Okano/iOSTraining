@@ -33,7 +33,7 @@ class ViewController: UIViewController, SecondViewControllerDelegate {
     }
     
     func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: openModalView)
     }
 }
 
