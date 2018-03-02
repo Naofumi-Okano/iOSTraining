@@ -30,6 +30,13 @@ class SampleViewController: UIViewController {
     @IBAction func secondButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "presentSecondViewController", sender: self)
     }
+    
+    @IBAction func thirdButtonTapped(_ sender: UIButton) {
+        guard let secondViewController = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") else {
+            return
+        }
+        present(secondViewController, animated: true, completion: nil)
+    }
 
     
     // MARK: - Navigation

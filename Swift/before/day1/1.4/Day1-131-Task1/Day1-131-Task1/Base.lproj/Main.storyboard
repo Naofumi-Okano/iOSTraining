@@ -57,6 +57,14 @@
                                     <action selector="secondButtonTapped:" destination="zFV-ka-a2z" eventType="touchUpInside" id="9me-TZ-yQm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-IO-QpI">
+                                <rect key="frame" x="0.0" y="431" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Third Button"/>
+                                <connections>
+                                    <action selector="thirdButtonTapped:" destination="zFV-ka-a2z" eventType="touchUpInside" id="EqD-9q-SIc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="kNu-cZ-zgD"/>
@@ -72,7 +80,7 @@
         <!--Second View Controller-->
         <scene sceneID="vcR-zo-XNm">
             <objects>
-                <viewController id="DZw-L7-9Bb" customClass="SecondViewController" customModule="Day1_131_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="DZw-L7-9Bb" customClass="SecondViewController" customModule="Day1_131_Task1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3J-6Y-gZr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
