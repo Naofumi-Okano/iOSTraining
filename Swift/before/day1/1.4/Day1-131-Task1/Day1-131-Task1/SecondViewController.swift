@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol SecondViewControllerDelegate: class {
+    func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton)
+}
+
 class SecondViewController: UIViewController {
+    weak var delegate: SecondViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +26,9 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        delegate?.secondViewController(self, didTapButton: sender)
+    }
 
     /*
     // MARK: - Navigation

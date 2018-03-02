@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SampleViewController: UIViewController {
+class SampleViewController: UIViewController, SecondViewControllerDelegate {
     @IBOutlet weak var label: UILabel!
 
     override func viewDidLoad() {
@@ -32,10 +32,15 @@ class SampleViewController: UIViewController {
     }
     
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
-        guard let secondViewController = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") else {
+        guard let secondViewController = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else {
             return
         }
+        secondViewController.delegate = self
         present(secondViewController, animated: true, completion: nil)
+    }
+    
+    func secondViewController(_ viewController: SecondViewController, didTapButton button: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
     
