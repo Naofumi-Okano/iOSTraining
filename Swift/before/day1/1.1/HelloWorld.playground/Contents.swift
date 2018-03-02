@@ -6,7 +6,7 @@ let o: String? = "o"
 var world: String! = nil
 world = " world!"
 
-print(h! + ell + o! + world)
+print((h ?? "H") + ell + (o ?? "o") + world)
 
 //let helloWorld: String
 //print(helloWorld)
