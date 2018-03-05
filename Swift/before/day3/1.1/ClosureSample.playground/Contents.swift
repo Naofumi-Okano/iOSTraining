@@ -21,22 +21,29 @@ class ClosureSample {
     }
 }
 
-//extension Array {
-//    func myfilter(_ isIncluded: (Element) -> Bool) -> [Element] {
-//        // ここに処理を実装
-//    }
-//}
+extension Array {
+    func myfilter(_ isIncluded: (Element) -> Bool) -> [Element] {
+        // これは流石に問題文からしてNG?
+//        return self.filter(isIncluded)
+        
+        var elements: [Element] = []
+        for element in self where isIncluded(element) {
+            elements.append(element)
+        }
+        return elements
+    }
+}
 
 func main() {
     let sample = ClosureSample()
     sample.name = "Swift"
     sample.printNameClosure()
     
-//    let before: [Any] = [ "hoge", "fuga", "piyo", 1, 2, 3, "foo", "bar"]
-//    let after = before.myfilter { element in
-//        return element is String
-//    }
-//    print(after) // ["hoge", "fuga", "piyo", "foo", "bar"]
+    let before: [Any] = [ "hoge", "fuga", "piyo", 1, 2, 3, "foo", "bar"]
+    let after = before.myfilter { element in
+        return element is String
+    }
+    print(after) // ["hoge", "fuga", "piyo", "foo", "bar"]
 }
 
 main()
