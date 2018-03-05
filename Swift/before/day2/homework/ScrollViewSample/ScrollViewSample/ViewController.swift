@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         scrollView.maximumZoomScale = 3
         scrollView.minimumZoomScale = 0.5
         scrollView.delegate = self
+        
+        scrollView.contentOffset = CGPoint(x: 200, y: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +43,14 @@ class ViewController: UIViewController {
 
 //MARK: - UIScrollViewDelegate
 extension ViewController: UIScrollViewDelegate {
-    // TODO: UIScrollViewDelegateのメソッドを追加
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Current content offset is \(scrollView.contentOffset)")
+    }
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         for imageView in scrollView.subviews where imageView is UIImageView {
             return imageView
