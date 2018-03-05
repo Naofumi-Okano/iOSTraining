@@ -12,19 +12,30 @@ class ThirdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .gray
 
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        label.backgroundColor = .blue
         label.text = "Label"
         self.view.addSubview(label)
         
         let button = UIButton(frame: CGRect(x: 0, y: 100, width: 100, height: 100))
-        button.backgroundColor = .red
         button.setTitle("Button", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         self.view.addSubview(button)
         
         let textField = UITextField(frame: CGRect(x: 0, y: 200, width: 100, height: 100))
+        textField.backgroundColor = .white
+        self.view.addSubview(textField)
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 300, width: 100, height: 100))
+        imageView.image = UIImage(named: "ojisan.png")
+        self.view.addSubview(imageView)
+        
+        let textView = UITextView(frame: CGRect(x: 0, y: 400, width: 100, height: 100))
+        textView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur...."
+        self.view.addSubview(textView)
+        
         // Do any additional setup after loading the view.
     }
 
