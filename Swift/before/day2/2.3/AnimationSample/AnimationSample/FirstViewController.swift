@@ -30,7 +30,11 @@ class FirstViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // TODO: アニメーション追加
+        UIView.animate(withDuration: 2, animations: {
+                self.ojisanImageView.frame = Const.ojisanMovedFrame
+            }, completion: { _ in
+                self.ojisanImageView.frame = Const.ojisanInitialFrame
+        })
     }
 }
 
