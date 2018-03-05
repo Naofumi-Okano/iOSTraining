@@ -35,6 +35,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard  let viewController = storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
+            return
+        }
+        viewController.title = "\(indexPath.row)"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 
 }
 
