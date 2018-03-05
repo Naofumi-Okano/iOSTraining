@@ -23,11 +23,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cameraButtonTapped(_ sender: UIButton) {
-        //TODO: UIImagePickerControllerの作成
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.sourceType = .photoLibrary
+        imagePickerVC.allowsEditing = true
+        
+        imagePickerVC.delegate = self
+        present(imagePickerVC, animated: true, completion: nil)
     }
 }
 
 //MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    //TODO: delegateメソッドの追加
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true, completion: nil)
+        
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
 }
