@@ -36,6 +36,10 @@ class ThirdViewController: UIViewController {
         textView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur...."
         self.view.addSubview(textView)
         
+        
+        for view in view.subviews where view is UIImageView {
+            view.removeFromSuperview()
+        }
         // Do any additional setup after loading the view.
     }
 
