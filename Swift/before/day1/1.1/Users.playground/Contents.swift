@@ -1,7 +1,5 @@
 //: Playground - noun: a place where people can play
 
-let isDebug: Bool = false
-
 enum Gender: Int {
     case man
     case female
@@ -30,18 +28,16 @@ class User {
         if let visits = dict["visits"] as? [Int] {
             self.visits = visits
         }
-        
-        if (isDebug) {
-            showInfo()
-        }
     }
-    
-    func showInfo() {
-        print(self.name)
-        print(self.gender)
-        print(self.era)
-        print(self.age)
-        print(self.visits ?? "")
+}
+
+extension User: CustomDebugStringConvertible {
+    var debugDescription: String {
+        if let visits = self.visits {
+            return "\n\t\(self.name)\n\t\(self.gender)\n\t\(self.era)\n\t\(self.age)\n\t\(visits)\n"
+        } else {
+            return "\n\t\(self.name)\n\t\(self.gender)\n\t\(self.era)\n\t\(self.age)\n\tnil\n"
+        }
     }
 }
 
