@@ -9,7 +9,7 @@ enum Gender: Int {
 
 class User {
     var name: String = ""
-    var gender: Gender = Gender.man
+    var gender: Gender = .man
     var era: Int = 0
     var age: Int = 0
     var visits: [Int]? = nil
