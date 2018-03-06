@@ -15,20 +15,20 @@ class User {
     var visits: [Int]? = nil
     
     init?(dict: [String : Any?]) {
-        if dict["name"] != nil && dict["name"] is String {
-            self.name = dict["name"] as! String
+        if let name = dict["name"] as? String {
+            self.name = name
         }
-        if dict["gender"] != nil && dict["gender"] is Gender {
-            self.gender = dict["gender"] as! Gender
+        if let gender = dict["gender"] as? Gender {
+            self.gender = gender
         }
-        if dict["era"] != nil && dict["era"] is Int {
-            self.era = dict["era"] as! Int
+        if let era = dict["era"] as? Int {
+            self.era = era
         }
-        if dict["age"] != nil && dict["age"] is Int {
-            self.age = dict["age"] as! Int
+        if let age = dict["age"] as? Int {
+            self.age = age
         }
-        if dict["visits"] != nil && dict["visits"] is [Int]? {
-            self.visits = dict["visits"] as! [Int]
+        if let visits = dict["visits"] as? [Int] {
+            self.visits = visits
         }
         
         if (isDebug) {
