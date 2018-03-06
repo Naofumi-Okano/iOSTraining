@@ -37,6 +37,9 @@
                         <viewLayoutGuide key="safeArea" id="Dfb-r9-qfG"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="5JT-Om-goQ"/>
+                    <connections>
+                        <outlet property="label" destination="49Q-Sy-sXt" id="Bmx-d1-Vn4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt7-QO-ypE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,6 +64,9 @@
                                 <rect key="frame" x="0.0" y="406" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="postNotification"/>
+                                <connections>
+                                    <action selector="pushNotificationTapped:" destination="5N6-sJ-7xZ" eventType="touchUpInside" id="UlO-Fn-ikh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
