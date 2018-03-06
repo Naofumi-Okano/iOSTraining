@@ -21,8 +21,32 @@ class ViewController: UIViewController {
         guard
             let encodedUsername = username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: "https://qiita.com/api/v2/users/\(encodedUsername)")
-        else { return }
-        //TODO: 通信を実行、完了白太textView.textに結果を代入して表示
+        else {
+            print("Invalid url")
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                do {
+                    let object = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(object)
+                    DispatchQueue.main.async {
+                        self.textView.text = "\(object)"
+                    }
+                } catch let e {
+                    print(e)
+                    DispatchQueue.main.async {
+                        self.textView.text = "\(e)"
+                    }
+                }
+            } else {
+                // error
+                print("Invalid request")
+            }
+        }
+        task.resume()
     }
 }
 
