@@ -24,27 +24,60 @@ class ViewController: UIViewController {
     }
 
     func fileURL() -> URL? {
-        // TODO: FileManagerを作ってDocumentDirectoryのURLを取得
+        let urls = FileManager().urls(for: .documentDirectory, in: .userDomainMask)
         
-        // TODO: URLから絶対パスを取得
+        guard let fileUrl = urls.first else {
+            return nil
+        }
         
-        // TODO: 保存するファイル（save.xml）をDocumentのパスに追加
-        
-        // TODO: ファイルパスを返す
-        
-        return nil
+        return fileUrl.appendingPathComponent("save.dat")
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        // TODO: textField1とtextField2の内容をDictionaryに変換して保存
+        guard let fileUrl = fileURL() else {
+            print("Failed get url.")
+            return
+        }
+
+        var saveDict: Dictionary = [String:String]()
+        saveDict["key1"] = textField1.text
+        saveDict["key2"] = textField2.text
+        
+        if NSKeyedArchiver.archiveRootObject(saveDict, toFile: fileUrl.path) {
+            print("Save Success")
+        } else {
+            print("Failed")
+        }
     }
     
     @IBAction func readButtonTapped(_ sender: UIButton) {
-        // TODO: データを読み込んで、textField1とtextField2に内容を表示
+        guard let fileUrl = fileURL() else {
+            print("Failed get url.")
+            return
+        }
+        
+        if FileManager.default.fileExists(atPath: fileUrl.path) {
+            let readDict = NSKeyedUnarchiver.unarchiveObject(withFile: fileUrl.path)
+            print(readDict)
+        } else {
+            print("not exist")
+        }
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        // TODO: ファイルの削除
+        guard let fileUrl = fileURL() else {
+            print("Failed get url.")
+            return
+        }
+        
+        if FileManager.default.fileExists(atPath: fileUrl.path) {
+            do {
+                try FileManager.default.removeItem(atPath: fileUrl.path)
+                print("Delete Success")
+            } catch {
+                print("Failed")
+            }
+        }
     }
 }
 
