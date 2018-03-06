@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak private var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func readSettingButtonTapped(_ sender: UIButton) {
-        // TODO: Setting Bundleで設定したtextFieldの値を取得
+        guard let array = UserDefaults.standard.string(forKey: "next_text_field") else { return }
+        label.text = array
     }
 }
 
