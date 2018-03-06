@@ -38,15 +38,12 @@ final class ViewController: UIViewController {
 
 extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print(navigationAction.request.url)
+//        print(navigationAction)
         decisionHandler(.allow) // decisionHandlerに.allowを返さないとそこからの処理が進みません
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("didFinish")
-        webView.evaluateJavaScript("document.getElementsByClassName(\"list-item repo-list-item\")[0].href;") { result, error in
-            print(result)
-        }
+        super.title = webView.title ?? "no title";
     }
 }
 
